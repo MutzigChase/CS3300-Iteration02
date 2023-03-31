@@ -1,19 +1,111 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+<div class="character-map">
+<style>
+table {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  height: 100%;
+  table-layout: fixed;
+}
+  
+td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 10px;
+}
 
-<p>
-  <strong>String:</strong>
-  <%= @project.string %>
-</p>
+thead {
+  color: pink;
+  border: 1px solid black;
+  text-align: center;
+  padding: 10px;
+}
+  
+tr:nth-child(even) {
+  background-color: lightgrey;
+  color: black
+}
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+h1 {
+  color: red;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;
+  height: 100% ;
+}
+
+body {
+  text-align: center;
+  background-color: white;
+  color: black;
+  font-size: 15px;
+}
+
+button {
+  margin-left: auto; 
+  margin-right: auto;
+  color: black;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+p {
+  text-align: center;
+  background-color: white;
+  color: black;
+  font-size: 15px;
+}
+
+strong {
+  color: red;
+}
+
+</style>
+
+<body>
+  <strong>Title</strong><br>
+  <em><%= @project.title %></em>
+</body><p></p>
+
+<toggle>
+<button onclick="switchLight()">Toggle: Dark Mode</button>
+<button onclick="changeFont('Georgia, serif'); ">Font: Georgia</button>
+<button onclick="changeFont('Arial, sans-serif'); ">Font: Arial</button>
+<button onclick="changeFont('Times New Roman, serif'); ">Font: TimesNewRoman</button>
+<br>
+<text>Resize Text: CTRL +/-</text>
+<br><br>
+
+
+<script>
+function switchLight() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+
+function changeFont(font){
+        let elementThree = document.querySelector(".character-map")
+        elementThree.style.fontFamily = font;
+    }
+</script>
+</toggle>
+
+<body>
+  <strong>String</strong><br>
+  <em><%= @project.string %></em>
+</body><p></p>
+
+<body>
+  <strong color:red >Description</strong><br>
+  <em><%= @project.description %></em>
+</body><p></p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+</div>
