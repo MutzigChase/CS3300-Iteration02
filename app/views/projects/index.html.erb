@@ -50,7 +50,7 @@ button {
 }
 
 .dark-mode {
-  background-color: black;
+  background-color: #A9A9A9;
   color: white;
 }
 
@@ -100,10 +100,12 @@ function changeFont(font){
         <td><%= project.title %></td>
         <td><%= project.string %></td>
         <td><%= project.description %></td>
+        <% if user_signed_in? %>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <%end%>
+        </tr>
     <% end %>
   </tbody>
 </table>
