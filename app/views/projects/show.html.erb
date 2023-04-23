@@ -97,7 +97,7 @@ function changeFont(font){
 </toggle>
 
 <body>
-  <strong>String</strong><br>
+  <strong>Rating</strong><br>
   <em><%= @project.string %></em>
 </body><p></p>
 
@@ -105,6 +105,19 @@ function changeFont(font){
   <strong color:red >Description</strong><br>
   <em><%= @project.description %></em>
 </body><p></p>
+
+<body>
+    <strong color:red >Image</strong><br>
+    <p><img id="output" width="200"/></p>
+      <script>
+          var loadFile = function(event) {
+              var image = document.getElementById('output');
+              image.src=URL.createObjectURL(event.target.files[0]);
+
+              @project.image = image;
+          };
+      </script>
+</body>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

@@ -18,13 +18,27 @@
 
 
   <b><div class="field">
-    <%= form.label :string %>
+    <%= form.label :Rating %>
     <%= form.text_area :string %>
   </div></b>
 
   <b><div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
+  </div></b>
+
+  <b><div class="image">
+  <strong color:red >Upload Image</strong><br>
+  <input type="file" accept="image/*" onchange="loadFile(event)">
+      <p><img id="output" width="200"/></p>
+      <script>
+          var loadFile = function(event) {
+              var image = document.getElementById('output');
+              image.src=URL.createObjectURL(event.target.files[0]);
+
+              @project.image = image;
+          };
+      </script>
   </div></b>
 
   <div class="actions">

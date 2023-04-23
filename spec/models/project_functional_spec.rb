@@ -13,5 +13,12 @@ RSpec.describe ProjectsController, :type => :controller do
                 expect(response).to have_http_status(:ok)
             end
         end
+
+        context "GET #new" do
+            let!(:project) { Project.update(title: "Test title", description: "Test description") }
+            it "returns a success response" do
+                expect(response).to have_http_status(:ok)
+            end
+        end
     end
 end
